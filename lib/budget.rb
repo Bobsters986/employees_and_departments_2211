@@ -12,4 +12,7 @@ class Budget
   def add_department(department)
     @departments << department
   end
+
+  
+
 end
