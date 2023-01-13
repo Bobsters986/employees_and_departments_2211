@@ -6,7 +6,7 @@ RSpec.describe Department do
   let(:bobbi) { Employee.new({name: "Bobbi Jaeger", age: "30", salary: "$100000"}) }
   let(:aaron) { Employee.new({name: "Aaron Tanaka", age: "25", salary: "$90000"}) }
 
-   describe '#initialize' do
+  describe '#initialize' do
     it 'exists' do
       expect(customer_service).to be_a(Department)
     end
@@ -47,6 +47,7 @@ RSpec.describe Department do
       customer_service.employee_expense(aaron, 75)
 
       expected_hash_2 = { bobbi => 150, aaron => 100 }
+
       expect(customer_service.employee_expense_total).to eq(expected_hash_2)
       expect(customer_service.expenses).to eq(250)
     end
