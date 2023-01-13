@@ -1,5 +1,6 @@
 require './lib/employee'
 require './lib/department'
+require './lib/budget'
 
 RSpec.describe Budget do
   let(:customer_service) { Department.new("Customer Service") }
@@ -15,6 +16,7 @@ RSpec.describe Budget do
     it 'has attributes' do
       expect(budget.name).to eq("State of Colorado")
       expect(budget.year).to eq(2022)
+      expect(budget.departments).to eq([])
     end
   end
 end
