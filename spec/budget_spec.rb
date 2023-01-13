@@ -72,8 +72,5 @@ RSpec.describe Budget do
 
       expect(budget.all_employees_salaries).to eq(expected_hash)
     end
-
   end
-
-
 end
