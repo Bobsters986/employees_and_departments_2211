@@ -12,7 +12,7 @@ RSpec.describe Budget do
   let(:john) { Employee.new({name: "John McClane", age: "40", salary: "$85000"}) }
   let(:budget) { Budget.new("State of Colorado", 2022) }
 
-   describe '#initialize' do
+  describe '#initialize' do
     it 'exists' do
       expect(budget).to be_a(Budget)
     end
@@ -41,7 +41,7 @@ RSpec.describe Budget do
     end
   end
 
-  describe 'list departments with expenses below $500' do
+  describe 'list #frugal_departments and #all_employees_salaries' do
     before do
       customer_service.hire(bobbi)
       customer_service.hire(aaron)
@@ -60,6 +60,17 @@ RSpec.describe Budget do
 
     it '#frugal_departments' do
       expect(budget.frugal_departments).to eq([customer_service, security])
+    end
+
+    it '#all_employees_salaries' do
+      expected_hash = {
+        bobbi => 100000,
+        aaron => 90000,
+        jill => 95000,
+        john => 85000
+      }
+
+      expect(budget.all_employees_salaries).to eq(expected_hash)
     end
 
   end
