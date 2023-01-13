@@ -25,14 +25,12 @@ RSpec.describe Budget do
   end
 
   describe 'budget can add departments' do
-    before do
+    it 'can #add_department' do
       customer_service.hire(bobbi)
       customer_service.hire(aaron)
       h_r.hire(jill)
       security.hire(john)
-    end
 
-    it 'can #add_department' do
       budget.add_department(customer_service)
       budget.add_department(h_r)
       budget.add_department(security)
