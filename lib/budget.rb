@@ -13,6 +13,10 @@ class Budget
     @departments << department
   end
 
-  
+  def frugal_departments
+    @departments.select do |department|
+      department.expenses < 500
+    end
+  end
 
 end
