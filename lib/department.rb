@@ -1,12 +1,14 @@
 class Department
   attr_reader :name,
               :employees,
-              :expenses
+              :expenses,
+              :employee_expense_total
 
   def initialize(name)
     @name = name
     @employees = []
     @expenses = 0
+    @employee_expense_total = Hash.new(0)
   end
 
   def hire(employee)
@@ -18,10 +20,7 @@ class Department
   end
 
   def employee_expense(employee, amount)
-    employee_expense_hash = Hash.new(0)
-    employee_expense_hash[employee] += expense(amount)
-    employee_expense_hash
+    expense(amount)
+    employee_expense_total[employee] += amount
   end
-
-  
 end

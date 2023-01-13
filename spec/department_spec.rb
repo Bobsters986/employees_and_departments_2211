@@ -34,17 +34,21 @@ RSpec.describe Department do
       expect(customer_service.expenses).to eq(125)
     end
 
-    it 'can track #employee_expense and #employee_expense_total' do
-
+    it 'can track #employee_expense, #employee_expense_total, and overall #expenses' do
       customer_service.employee_expense(bobbi, 100)
       customer_service.employee_expense(aaron, 25)
 
-      expected_hash = {
-        bobbi => 100,
-        aaron => 25
-      }
-
+      expected_hash = { bobbi => 100, aaron => 25 }
+      
       expect(customer_service.employee_expense_total).to eq(expected_hash)
+      expect(customer_service.expenses).to eq(125)
+
+      customer_service.employee_expense(bobbi, 50)
+      customer_service.employee_expense(aaron, 75)
+
+      expected_hash_2 = { bobbi => 150, aaron => 100 }
+      expect(customer_service.employee_expense_total).to eq(expected_hash_2)
+      expect(customer_service.expenses).to eq(250)
     end
   end
 end
